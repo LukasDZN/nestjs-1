@@ -12,6 +12,8 @@
   "scripts": {
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "docker:env": "docker-compose --file docker/docker-compose.yaml up --detach --build && echo '\nAccess pgAdmin at: http://localhost:5050 (service might take a minute to start)\n'",
+    "docker:env:down": "docker-compose --file docker/docker-compose.yaml down",
     "start": "nest start -b swc --type-check",
     "start:dev": "nest start -b swc --watch --type-check",
     "start:debug": "nest start -b swc --debug --watch --type-check",
@@ -24,15 +26,19 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
+    "@fastify/helmet": "^11.1.1",
     "@fastify/static": "^7.0.1",
     "@nestjs/common": "^10.3.3",
     "@nestjs/config": "^3.2.0",
     "@nestjs/core": "^10.3.3",
+    "@nestjs/mapped-types": "*",
     "@nestjs/platform-express": "^10.3.3",
     "@nestjs/platform-fastify": "^10.3.3",
     "fastify": "^4.26.2",
     "nestjs-cls": "^4.2.1",
     "nestjs-pino": "^4.0.0",
+    "pino-http": "^9.0.0",
+    "pino-pg": "^2.2.1",
     "reflect-metadata": "^0.2.1",
     "rxjs": "^7.8.1",
     "zod": "^3.22.4"
@@ -54,6 +60,7 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.3",
     "jest": "^29.7.0",
+    "pino-pretty": "^11.0.0",
     "prettier": "^3.2.5",
     "source-map-support": "^0.5.21",
     "supertest": "^6.3.4",

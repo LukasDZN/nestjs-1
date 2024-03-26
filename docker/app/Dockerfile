@@ -2,7 +2,7 @@
 FROM node:20
 
 # Step 2: Set the working directory in the container
-WORKDIR /usr/src/app
+WORKDIR /dockerfile-workdir
 
 # Step 3: Copy package.json and pnpm-lock.yaml
 COPY package.json pnpm-lock.yaml ./
@@ -17,4 +17,5 @@ COPY . .
 RUN pnpm build
 
 # Step 6: Define the command to run your app using CMD
+# Note: this could be excluded if you want to run the app in other environments, such as development or staging
 CMD ["pnpm", "start:prod"]

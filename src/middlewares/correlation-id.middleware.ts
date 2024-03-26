@@ -1,17 +1,16 @@
-import { Injectable, NestMiddleware } from '@nestjs/common'
-import { FastifyReply, FastifyRequest } from 'fastify'
+// import { Injectable, NestMiddleware } from '@nestjs/common'
+// import { FastifyReply, FastifyRequest } from 'fastify'
+// import { ClsService } from 'nestjs-cls'
 
-@Injectable()
-export class CorrelationIdMiddleware implements NestMiddleware {
-    use(req: FastifyRequest['raw'], res: FastifyReply['raw'], next: () => void) {
-        let correlationId = req.headers['correlation-id']
+// @Injectable()
+// export class CorrelationIdMiddleware implements NestMiddleware {
+//     constructor(private readonly clsService: ClsService) {}
 
-        if (!correlationId) {
-            correlationId = crypto.randomUUID()
-        }
+//     use(req: FastifyRequest['raw'], res: FastifyReply['raw'], next: () => void) {
+//         const correlationId = this.clsService.get('correlationId')
 
-        res.setHeader('correlation-id', correlationId)
+//         res.setHeader('correlation-id', correlationId)
 
-        next()
-    }
-}
+//         next()
+//     }
+// }

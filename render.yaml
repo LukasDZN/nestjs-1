@@ -13,7 +13,7 @@ services:
       maxInstances: 1
       targetMemoryPercent: 70 # optional if targetCPUPercent is set
       targetCPUPercent: 70 # optional if targetMemory is set
-    dockerfilePath: ./docker/Dockerfile
+    dockerfilePath: ./docker/app/Dockerfile
     # preDeployCommand: bundle exec ruby migrate.rb
     buildCommand: pnpm i && pnpm build
     startCommand: pnpm start:prod
