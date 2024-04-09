@@ -1,4 +1,5 @@
 import postgres from 'postgres'
+import { serializeError } from 'src/libs/serializeError.util'
 import { seeds } from './seeds/seeds'
 
 export const seedDatabase = async ({ sql }: { sql: postgres.Sql }) => {
@@ -12,9 +13,7 @@ export const seedDatabase = async ({ sql }: { sql: postgres.Sql }) => {
 
         console.log('✅ Database seeded successfully!')
     } catch (error) {
-        console.error(
-            `❌ Error seeding database: ${error instanceof Error ? error.message : error}`
-        )
+        console.error(`❌ Error seeding database: ${serializeError(error)}`)
     } finally {
         await sql.end()
     }

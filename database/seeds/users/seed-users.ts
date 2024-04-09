@@ -1,4 +1,5 @@
 import postgres from 'postgres'
+import { serializeError } from 'src/libs/serializeError.util'
 import { usersSeed } from './users.seed'
 
 export const seedUsers = async ({ sql }: { sql: postgres.Sql }) => {
@@ -16,6 +17,6 @@ export const seedUsers = async ({ sql }: { sql: postgres.Sql }) => {
 
         console.log('✅ Users seeded successfully!')
     } catch (error) {
-        console.error(`❌ Error seeding users: ${error instanceof Error ? error.message : error}`)
+        console.error(`❌ Error seeding users: ${serializeError(error)}`)
     }
 }

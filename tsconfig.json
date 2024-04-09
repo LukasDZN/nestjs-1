@@ -3,6 +3,8 @@
     "module": "node16", // default: "commonjs"
     "moduleResolution": "node16", // default: none
     "target": "ES2022", // default: "ES2021"
+    "lib": ["ES2022"], // default: none
+
     "declaration": true,
     "removeComments": true,
     "emitDecoratorMetadata": true,

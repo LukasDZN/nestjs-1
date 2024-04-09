@@ -1,3 +1,4 @@
+import postgres from 'postgres'
 import { env } from '../env.config'
 
 export const postgresqlDb1 = {
@@ -8,3 +9,5 @@ export const postgresqlDb1 = {
     password: env.databases.postgresqlDb1.PASSWORD,
     ssl: true,
 } as const
+
+export const sql = postgres(postgresqlDb1)
