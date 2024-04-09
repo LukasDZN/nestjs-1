@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common'
+import { Controller, Post } from '@nestjs/common'
 import { Observable, from, map } from 'rxjs'
 import { AppService } from './app.service'
 
@@ -16,7 +16,7 @@ export class AppController {
     //     }
     // }
 
-    @Get('hi')
+    @Post('hi')
     getHello(): Observable<{ message: string }> {
         // from(this.getHelloAsync());
         return from(this.appService.getHello()).pipe(

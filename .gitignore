@@ -1,3 +1,13 @@
+# Env files
+.env
+.*.env
+.env.*
+# allow .env.example to be committed
+!.env.example
+
+# Dev mode files
+*.no-git-commit.*
+
 # compiled output
 /dist
 /node_modules
